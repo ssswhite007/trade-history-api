@@ -1,5 +1,5 @@
 // Import the jsonwebtoken library for handling JWTs
-const jwt = require('jsonwebtoken');
+import jwt from 'jsonwebtoken';
 
 /**
  * Middleware to authenticate requests using JWT
@@ -7,7 +7,7 @@ const jwt = require('jsonwebtoken');
  * @param {Object} res - The response object
  * @param {Function} next - The next middleware function
  */
-exports.authenticateJWT = (req, res, next) => {
+export const authenticateJWT = (req, res, next) => {
   // Extract the token from the Authorization header
   const token = req.header('Authorization')?.split(' ')[1];
 

@@ -1,5 +1,5 @@
-// Import the socket.io library
-const socketIo = require('socket.io');
+// Import the Server class from the socket.io library
+import { Server } from 'socket.io';
 
 // Declare a variable to hold the socket.io instance
 let io;
@@ -8,9 +8,9 @@ let io;
  * Initialize the socket.io server
  * @param {Object} server - The HTTP server instance
  */
-function init(server) {
+export function init(server) {
   // Create a new socket.io instance and attach it to the server
-  io = socketIo(server);
+  io = new Server(server);
 
   // Listen for new client connections
   io.on('connection', (socket) => {
@@ -28,12 +28,9 @@ function init(server) {
  * @returns {Object} - The socket.io instance
  * @throws Will throw an error if socket.io is not initialized
  */
-function getIo() {
+export function getIo() {
   if (!io) {
     throw new Error('Socket.io not initialized!');
   }
   return io;
 }
-
-// Export the init and getIo functions
-module.exports = { init, getIo };

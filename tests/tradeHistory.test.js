@@ -1,9 +1,9 @@
 // Import necessary modules and dependencies
-const request = require('supertest');  
-const app = require('../app');  
-const jwt = require('jsonwebtoken');
-const db = require('../models');
-const redisClient = require('../redisClient');
+import request from 'supertest';  
+import app from '../app';  
+import jwt from 'jsonwebtoken';
+import { db } from '../models';
+import { connect, disconnect } from '../redisClient';
 
 // Mock the socket module to prevent actual socket connections during tests
 jest.mock('../socket', () => ({
@@ -115,5 +115,5 @@ describe('GET /trade-history/:userId/:tradeId', () => {
 
 // Disconnect from Redis after all tests are done
 afterAll(async () => {
-  await redisClient.disconnect();
+  await disconnect();
 });

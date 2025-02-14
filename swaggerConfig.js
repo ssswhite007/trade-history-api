@@ -1,5 +1,5 @@
 // Import the swagger-jsdoc library to generate Swagger documentation
-const swaggerJsdoc = require('swagger-jsdoc');
+import swaggerJsdoc from 'swagger-jsdoc';
 
 // Define the options for the Swagger documentation
 const options = {
@@ -18,4 +18,4 @@ const options = {
 const specs = swaggerJsdoc(options);
 
 // Export the generated Swagger specifications for use in other parts of the application
-module.exports = specs;
+export default specs;

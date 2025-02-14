@@ -1,11 +1,11 @@
 // Import the Express framework
-const express = require('express');
+import express from 'express';
 
 // Import the trade history controller
-const controller = require('../controllers/tradeHistoryController');
+import { createTradeController, getUserTradesController, getTradeByIdController } from '../controllers/tradeHistoryController.js';
 
 // Import the JWT authentication middleware
-const { authenticateJWT } = require('../middleware/authMiddleware');
+import { authenticateJWT } from '../middleware/authMiddleware.js';
 
 // Create a new router instance
 const router = express.Router();
@@ -53,7 +53,7 @@ const router = express.Router();
  *         description: Unauthorized
  */
 // Define a POST route to create a new trade
-router.post('/', authenticateJWT, controller.createTrade);
+router.post('/', authenticateJWT, createTradeController);
 
 /**
  * @swagger
@@ -89,7 +89,7 @@ router.post('/', authenticateJWT, controller.createTrade);
  *         description: Unauthorized
  */
 // Define a GET route to retrieve all trades for a user
-router.get('/:userId', authenticateJWT, controller.getUserTrades);
+router.get('/:userId', authenticateJWT, getUserTradesController);
 
 /**
  * @swagger
@@ -121,7 +121,7 @@ router.get('/:userId', authenticateJWT, controller.getUserTrades);
  *         description: Trade not found
  */
 // Define a GET route to retrieve a specific trade by ID for a user
-router.get('/:userId/:tradeId', authenticateJWT, controller.getTradeById);
+router.get('/:userId/:tradeId', authenticateJWT, getTradeByIdController);
 
 // Export the router
-module.exports = router;
+export default router;

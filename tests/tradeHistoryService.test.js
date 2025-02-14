@@ -1,7 +1,8 @@
-require('dotenv').config();
-const { getIo } = require('../socket'); // Adjust the path as necessary
-const tradeHistoryService = require('../services/tradeHistoryService');
-const { v4: uuidv4 } = require('uuid');
+import dotenv from 'dotenv';
+dotenv.config({ path: '.env' });
+import { getIo } from '../socket'; // Adjust the path as necessary
+import { createTrade, getUserTrades, getTradeById } from '../services/tradeHistoryService';
+import { v4 as uuidv4 } from 'uuid';
 
 // Mock the socket module to prevent actual socket connections during tests
 jest.mock('../socket', () => ({
@@ -38,7 +39,7 @@ describe('tradeHistoryService', () => {
     };
     
     // Call the createTrade function from the service
-    await tradeHistoryService.createTrade(trade);
+    await createTrade(trade);
 
     // Assert that the emit function was called with the correct event and data
     expect(ioMock.emit).toHaveBeenCalledWith(

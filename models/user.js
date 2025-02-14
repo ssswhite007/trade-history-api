@@ -1,8 +1,8 @@
 // Import DataTypes from Sequelize for defining model attributes
-const { DataTypes } = require('sequelize');
+import { DataTypes } from 'sequelize';
 
 // Import the sequelize instance from the index file
-const { sequelize } = require('./index');
+import { sequelize } from './index';
 
 // Define the User model with its attributes and options
 const User = sequelize.define('User', {
@@ -32,4 +32,4 @@ const User = sequelize.define('User', {
 });
 
 // Export the User model for use in other parts of the application
-module.exports = User;
+export default User;

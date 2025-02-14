@@ -1,23 +1,24 @@
 // Import the Express framework
-const express = require('express');
+import express from 'express';
 
 // Import body-parser to parse incoming request bodies
-const bodyParser = require('body-parser');
+import bodyParser from 'body-parser';
 
 // Load environment variables from a .env file into process.env
-require('dotenv').config();
+import dotenv from 'dotenv';
+dotenv.config({ path: '.env' });
 
 // Import the trade history routes
-const tradeHistoryRoutes = require('./routes/tradeHistoryRoutes');
+import tradeHistoryRoutes from './routes/tradeHistoryRoutes.js';
 
 // Import Swagger UI for API documentation
-const swaggerUi = require('swagger-ui-express');
+import swaggerUi from 'swagger-ui-express';
 
 // Import Swagger specifications
-const swaggerSpecs = require('./swaggerConfig');
+import swaggerSpecs from './swaggerConfig.js';
 
 // Import the database models
-const db = require('./models');
+import { sequelize, db } from './models/index.js';
 
 // Synchronize the database models with the database
 db.sequelize.sync({ alter: true });
@@ -35,6 +36,6 @@ app.use('/trade-history', tradeHistoryRoutes);
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpecs));
 
 // Export the Express app
-module.exports = app;
+export default app;
 
 

@@ -1,27 +1,27 @@
 // Import the TradeHistory model for database operations
-const TradeHistory = require('../models/tradeHistory');
+import TradeHistory from '../models/tradeHistory.js';
 
 // Import the function to get the socket.io instance
-const { getIo } = require('../socket');
+import { getIo } from '../socket.js';
 
 // Import the Redis client and connection function
-const { redisClient, connect } = require('../redisClient');
+import { redisClient, connect } from '../redisClient.js';
 
 /**
  * Create a new trade and emit a socket event
  * @param {Object} tradeData - The data for the new trade
  * @returns {Object} - The created trade
  */
-exports.createTrade = async (tradeData) => {
+export async function createTrade(trade) {
   // Create a new trade record in the database
-  const trade = await TradeHistory.create(tradeData);
+  const tradeData = await TradeHistory.create(trade);
 
   // Get the socket.io instance and emit a trade update event
   const io = getIo();
-  io.emit('tradeUpdate', trade);
+  io.emit('tradeUpdate', tradeData);
 
   // Return the created trade
-  return trade;
+  return tradeData;
 };  
 
 /**
@@ -31,7 +31,7 @@ exports.createTrade = async (tradeData) => {
  * @param {number} limit - The number of trades per page
  * @returns {Object} - An object containing the total count and the list of trades
  */
-exports.getUserTrades = async (userId, page, limit) => {
+export async function getUserTrades(userId, page, limit) {
   // Ensure the Redis client is connected
   await connect();
 
@@ -69,7 +69,7 @@ exports.getUserTrades = async (userId, page, limit) => {
  * @param {string} tradeId - The ID of the trade
  * @returns {Object|null} - The trade if found, otherwise null
  */
-exports.getTradeById = async (tradeId) => {  
+export async function getTradeById(tradeId) {  
   // Find the trade by its primary key
   return TradeHistory.findByPk(tradeId);  
 };

@@ -1,15 +1,15 @@
 // Import the TradeHistoryService to handle trade-related operations
-const TradeHistoryService = require('../services/tradeHistoryService');
+import { createTrade, getUserTrades, getTradeById } from '../services/tradeHistoryService.js';
 
 /**
  * Controller to handle the creation of a new trade
  * @param {Object} req - The request object
  * @param {Object} res - The response object
  */
-exports.createTrade = async (req, res) => {
+export const createTradeController = async (req, res) => {
   try {
     // Call the service to create a new trade with the request body data
-    const trade = await TradeHistoryService.createTrade(req.body);
+    const trade = await createTrade(req.body);
     // Respond with the created trade data
     res.status(200).json(trade);
   } catch (error) {
@@ -24,12 +24,12 @@ exports.createTrade = async (req, res) => {
  * @param {Object} req - The request object
  * @param {Object} res - The response object
  */
-exports.getUserTrades = async (req, res) => {
+export const getUserTradesController = async (req, res) => {
   // Extract page and limit from query parameters, with default values
   const { page = 1, limit = 10 } = req.query;
   try {
     // Call the service to get trades for the user with pagination
-    const trades = await TradeHistoryService.getUserTrades(req.params.userId, page, limit);
+    const trades = await getUserTrades(req.params.userId, page, limit);
     // Respond with the list of trades
     res.status(200).json(trades);
   } catch (error) {
@@ -44,10 +44,10 @@ exports.getUserTrades = async (req, res) => {
  * @param {Object} req - The request object
  * @param {Object} res - The response object
  */
-exports.getTradeById = async (req, res) => {
+export const getTradeByIdController = async (req, res) => {
   try {
     // Call the service to get a trade by its ID
-    const trade = await TradeHistoryService.getTradeById(req.params.tradeId);
+    const trade = await getTradeById(req.params.tradeId);
     // If the trade is not found, respond with a 404 status code
     if (!trade) return res.status(404).json({ error: 'Trade not found' });
     // Respond with the trade data
