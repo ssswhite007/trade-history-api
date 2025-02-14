@@ -1,6 +1,10 @@
-const { DataTypes } = require('sequelize');  
-const { sequelize } = require('./index');  
+// Import DataTypes from Sequelize for defining model attributes
+const { DataTypes } = require('sequelize');
 
+// Import the Sequelize instance from the index file
+const { sequelize } = require('./index');
+
+// Define the TradeHistory model with its attributes and options
 const TradeHistory = sequelize.define('TradeHistory', {  
   id: {  
     type: DataTypes.UUID,  
@@ -38,4 +42,5 @@ const TradeHistory = sequelize.define('TradeHistory', {
   },  
 });  
 
+// Export the TradeHistory model for use in other parts of the application
 module.exports = TradeHistory;

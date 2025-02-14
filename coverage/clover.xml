@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1739497179198" clover="3.2.0">
-  <project timestamp="1739497179198" name="All files">
+<coverage generated="1739504568105" clover="3.2.0">
+  <project timestamp="1739504568105" name="All files">
     <metrics statements="93" coveredstatements="82" conditionals="16" coveredconditionals="9" methods="11" coveredmethods="10" elements="120" coveredelements="101" complexity="0" loc="93" ncloc="93" packages="6" files="9" classes="9"/>
     <package name="trade-history-api">
       <metrics statements="26" coveredstatements="25" conditionals="6" coveredconditionals="3" methods="3" coveredmethods="2"/>
@@ -107,10 +107,10 @@
         <line num="2" count="1" type="stmt"/>
         <line num="3" count="1" type="stmt"/>
         <line num="5" count="1" type="stmt"/>
-        <line num="39" count="1" type="stmt"/>
-        <line num="74" count="1" type="stmt"/>
-        <line num="105" count="1" type="stmt"/>
-        <line num="107" count="1" type="stmt"/>
+        <line num="49" count="1" type="stmt"/>
+        <line num="84" count="1" type="stmt"/>
+        <line num="115" count="1" type="stmt"/>
+        <line num="117" count="1" type="stmt"/>
       </file>
     </package>
     <package name="trade-history-api.services">

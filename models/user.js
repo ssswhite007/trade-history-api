@@ -1,6 +1,10 @@
+// Import DataTypes from Sequelize for defining model attributes
 const { DataTypes } = require('sequelize');
+
+// Import the sequelize instance from the index file
 const { sequelize } = require('./index');
 
+// Define the User model with its attributes and options
 const User = sequelize.define('User', {
   id: {
     type: DataTypes.UUID,
@@ -27,4 +31,5 @@ const User = sequelize.define('User', {
   // Add more fields as needed
 });
 
+// Export the User model for use in other parts of the application
 module.exports = User;

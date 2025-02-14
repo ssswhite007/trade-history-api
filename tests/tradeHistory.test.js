@@ -1,27 +1,33 @@
+// Import necessary modules and dependencies
 const request = require('supertest');  
 const app = require('../app');  
 const jwt = require('jsonwebtoken');
 const db = require('../models');
 const redisClient = require('../redisClient');
 
+// Mock the socket module to prevent actual socket connections during tests
 jest.mock('../socket', () => ({
   getIo: jest.fn(() => ({
     emit: jest.fn(),
   })),
 }));
 
+// Define JWT secret and payload for authentication
 const secret = process.env.JWT_SECRET;
 const payload = {
   userId: '123e4567-e89b-12d3-a456-426614174001',
 };
 
+// Generate a JWT token for authentication
 const token = jwt.sign(payload, secret, { expiresIn: '1h' });
 
+// Setup database connection before running tests
 beforeAll(async () => {
   await db.sequelize.authenticate();
   await db.sequelize.sync();
 });
 
+// Test suite for GET /trade-history/:userId endpoint
 describe('GET /trade-history/:userId', () => {  
   it('should return paginated trade history for a user', async () => {  
     const res = await request(app)
@@ -37,11 +43,12 @@ describe('GET /trade-history/:userId', () => {
     expect(res.status).toBe(401);
     expect(res.body).toHaveProperty('error', 'Unauthorized');
   });
-
 });
 
+// Test suite for POST /trade-history endpoint
 describe('POST /trade-history', () => {
 
+  // Define a new trade object for testing
   const newTrade = {
     user_id: '123e4567-e89b-12d3-a456-426614174001',
     trade_type: 'BUY',
@@ -75,6 +82,7 @@ describe('POST /trade-history', () => {
   });
 });
 
+// Test suite for GET /trade-history/:userId/:tradeId endpoint
 describe('GET /trade-history/:userId/:tradeId', () => {
   it('should return a specific trade by ID for a user', async () => {
     const tradeId = 'ca9ae447-e131-4a53-bd9f-d89310dba9a1'; // Replace with a valid trade ID from your database
@@ -105,6 +113,7 @@ describe('GET /trade-history/:userId/:tradeId', () => {
   });
 });
 
+// Disconnect from Redis after all tests are done
 afterAll(async () => {
   await redisClient.disconnect();
 });
