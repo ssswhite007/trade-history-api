@@ -1,0 +1,307 @@
+{
+  "version": "2.1.0",
+  "$schema": "http://json.schemastore.org/sarif-2.1.0-rtm.5",
+  "runs": [
+    {
+      "tool": {
+        "driver": {
+          "name": "ESLint",
+          "informationUri": "https://eslint.org",
+          "rules": [
+            {
+              "id": "no-unused-vars",
+              "helpUri": "https://eslint.org/docs/latest/rules/no-unused-vars",
+              "properties": {},
+              "shortDescription": {
+                "text": "Disallow unused variables"
+              }
+            }
+          ],
+          "version": "9.20.1"
+        }
+      },
+      "artifacts": [
+        {
+          "location": {
+            "uri": "file:///E:/trade-history-api/app.js"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///E:/trade-history-api/controllers/tradeHistoryController.js"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///E:/trade-history-api/coverage/lcov-report/block-navigation.js"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///E:/trade-history-api/coverage/lcov-report/prettify.js"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///E:/trade-history-api/coverage/lcov-report/sorter.js"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///E:/trade-history-api/eslint.config.cjs"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///E:/trade-history-api/eslint.config.js"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///E:/trade-history-api/jest.config.js"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///E:/trade-history-api/middleware/authMiddleware.js"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///E:/trade-history-api/models/index.js"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///E:/trade-history-api/models/tradeHistory.js"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///E:/trade-history-api/models/user.js"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///E:/trade-history-api/redisClient.js"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///E:/trade-history-api/routes/tradeHistoryRoutes.js"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///E:/trade-history-api/seeds/seed-tradeHistory.js"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///E:/trade-history-api/server.js"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///E:/trade-history-api/services/tradeHistoryService.js"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///E:/trade-history-api/socket.js"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///E:/trade-history-api/swaggerConfig.js"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///E:/trade-history-api/tests/tradeHistory.test.js"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///E:/trade-history-api/tests/tradeHistoryService.test.js"
+          }
+        }
+      ],
+      "results": [
+        {
+          "level": "warning",
+          "message": {
+            "text": "'ae' is assigned a value but never used."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///E:/trade-history-api/coverage/lcov-report/prettify.js",
+                  "index": 3
+                },
+                "region": {
+                  "startLine": 2,
+                  "startColumn": 11414,
+                  "endLine": 2,
+                  "endColumn": 11416
+                }
+              }
+            }
+          ],
+          "ruleId": "no-unused-vars",
+          "ruleIndex": 0,
+          "suppressions": [
+            {
+              "kind": "inSource",
+              "justification": ""
+            }
+          ]
+        },
+        {
+          "level": "warning",
+          "message": {
+            "text": "'af' is assigned a value but never used."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///E:/trade-history-api/coverage/lcov-report/prettify.js",
+                  "index": 3
+                },
+                "region": {
+                  "startLine": 2,
+                  "startColumn": 11438,
+                  "endLine": 2,
+                  "endColumn": 11440
+                }
+              }
+            }
+          ],
+          "ruleId": "no-unused-vars",
+          "ruleIndex": 0,
+          "suppressions": [
+            {
+              "kind": "inSource",
+              "justification": ""
+            }
+          ]
+        },
+        {
+          "level": "warning",
+          "message": {
+            "text": "'ag' is assigned a value but never used."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///E:/trade-history-api/coverage/lcov-report/prettify.js",
+                  "index": 3
+                },
+                "region": {
+                  "startLine": 2,
+                  "startColumn": 11471,
+                  "endLine": 2,
+                  "endColumn": 11473
+                }
+              }
+            }
+          ],
+          "ruleId": "no-unused-vars",
+          "ruleIndex": 0,
+          "suppressions": [
+            {
+              "kind": "inSource",
+              "justification": ""
+            }
+          ]
+        },
+        {
+          "level": "warning",
+          "message": {
+            "text": "'ae' is assigned a value but never used."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///E:/trade-history-api/coverage/lcov-report/prettify.js",
+                  "index": 3
+                },
+                "region": {
+                  "startLine": 2,
+                  "startColumn": 14757,
+                  "endLine": 2,
+                  "endColumn": 14759
+                }
+              }
+            }
+          ],
+          "ruleId": "no-unused-vars",
+          "ruleIndex": 0,
+          "suppressions": [
+            {
+              "kind": "inSource",
+              "justification": ""
+            }
+          ]
+        }
+      ],
+      "invocations": [
+        {
+          "toolConfigurationNotifications": [
+            {
+              "level": "warning",
+              "message": {
+                "text": "Unused eslint-disable directive (no problems were reported)."
+              },
+              "locations": [
+                {
+                  "physicalLocation": {
+                    "artifactLocation": {
+                      "uri": "file:///E:/trade-history-api/coverage/lcov-report/block-navigation.js",
+                      "index": 2
+                    },
+                    "region": {
+                      "startLine": 1,
+                      "startColumn": 1
+                    }
+                  }
+                }
+              ],
+              "descriptor": {
+                "id": "ESL0999"
+              }
+            },
+            {
+              "level": "warning",
+              "message": {
+                "text": "Unused eslint-disable directive (no problems were reported)."
+              },
+              "locations": [
+                {
+                  "physicalLocation": {
+                    "artifactLocation": {
+                      "uri": "file:///E:/trade-history-api/coverage/lcov-report/sorter.js",
+                      "index": 4
+                    },
+                    "region": {
+                      "startLine": 1,
+                      "startColumn": 1
+                    }
+                  }
+                }
+              ],
+              "descriptor": {
+                "id": "ESL0999"
+              }
+            }
+          ],
+          "executionSuccessful": true
+        }
+      ]
+    }
+  ]
+}
