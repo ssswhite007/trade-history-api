@@ -42,5 +42,4 @@ const TradeHistory = sequelize.define('TradeHistory', {
   },  
 });  
 
-// Export the TradeHistory model for use in other parts of the application
-export default TradeHistory;
+export default TradeHistory;  

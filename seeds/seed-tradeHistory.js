@@ -1,5 +1,7 @@
-require('dotenv').config();
-const TradeHistory = require('../models/tradeHistory');
+// Load environment variables from a .env file into process.env
+import dotenv from 'dotenv';
+dotenv.config({ path: '.env' });
+import TradeHistory from '../models/tradeHistory.js';
 
 async function seedTradeHistory() {
   try {
